@@ -2,11 +2,14 @@
 import { useUser } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation';
 import React, { use, useEffect } from 'react'
-import prisma  from '../../lib/prisma';
 import { CheckUser } from '../serverActions/CheckUser';
-
-
+import MobilePreview from "./_components/MobilePreview"
+import FormContent from "./_components/FormContent"
 const page = () => {
+
+  console.log("page is re rendered!!!")
+
+
    const {user} = useUser();
    const email = user?.primaryEmailAddress?.emailAddress
    const router = useRouter();
@@ -29,7 +32,16 @@ const page = () => {
   }
 
   return (
-    <div>Admin</div>
+    <div className=' grid grid-cols-1 lg:grid-cols-3 w-full p-5'>
+
+      <div className='col-span-2'>
+        <FormContent/>
+       </div>
+
+       <div className='col-span-1'> 
+       <MobilePreview/>
+       </div>
+    </div>
   )
 }
 

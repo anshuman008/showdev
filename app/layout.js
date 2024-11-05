@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div data-theme="dark" className="h-screen">
+        <div data-theme="dark" className="">
           {children}
           <ToastContainer />
         </div>
