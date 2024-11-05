@@ -22,4 +22,5 @@ model UserInfo {
   bio      String? 
   location String?
   link     String?
+  profileImage String?
 }

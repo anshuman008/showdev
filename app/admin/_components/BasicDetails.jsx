@@ -1,24 +1,24 @@
 import { Camera, Link2, MapPin } from "lucide-react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { UpdateUser } from "../../serverActions/CheckUser";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { useUser } from "@clerk/nextjs";
 import useUserInfo from "../../../store/userInfo";
+import { uploadImage } from "../../../utils/supabaseLogic";
 
 const BasicDetails = () => {
   const userdata = useUserInfo();
   const [selectedOption, setSlectedOption] = useState("");
-
+  const [userProfile,setProfile] = useState('');
   let timeoutId;
 
   const { user } = useUser();
 
   const updateData = async (data, field, email) => {
     const res = await UpdateUser(data, field, email);
-
     if (res.status === 200) {
-      toast.success("username updated succesfully!!");
+      toast.success(`${field} updated succesfully!!`);
     } else {
       toast.error("there is an error!");
     }
@@ -37,17 +37,30 @@ const BasicDetails = () => {
   };
 
 
-  const handelFileUpload = (event) => {
+
+useEffect(() => {
+  userdata&&setProfile(userdata?.userInfo?.profileImage)
+},[userdata])
+
+  const handelFileUpload = async(event) => {
     const file = event.target.files[0];
-    console.log(file);
+
+    if (file) {
+      const url = await uploadImage(file);
+       
+      setProfile(url);
+      if(url){
+         await  updateData(url,'profileImage',user.primaryEmailAddress.emailAddress)
+      }
+    }
   }
 
   return (
     <div className="p-7 rounded-lg bg-gray-800 my-7">
       <div className="flex gap-6 items-center">
-       
        <label htmlFor="file-upload">
-       <Camera className="p-3 h-12 w-12 rounded-full bg-gray-500 cursor-pointer" />
+        {!userProfile&&<Camera className="p-3 h-12 w-12 rounded-full bg-gray-500 cursor-pointer" />}
+        {userProfile&&<img src={userProfile} className=" h-12 w-12 rounded-full bg-gray-500 cursor-pointer"/>}
        </label>
 
        <input type="file" id="file-upload" style={{display:'none'}} 
