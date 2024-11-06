@@ -1,6 +1,6 @@
 import React from 'react'
 import SideNav from './_components/SideNav'
-import Provider from "./provider"
+import Provider from "./Provider"
 
 
 const AdminLayout = ({children}) => {
