@@ -13,14 +13,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Example model
 model UserInfo {
-  id       Int    @id @default(autoincrement())
-  name     String  
-  email    String @unique
-  username String @unique
-  bio      String? 
-  location String?
-  link     String?
+  id           Int     @id @default(autoincrement())
+  name         String
+  email        String  @unique
+  username     String  @unique
+  bio          String?
+  location     String?
+  link         String?
   profileImage String?
+  projects     Projects[]
+}
+
+model Projects {
+  id           Int     @id @default(autoincrement())
+  name         String? 
+  desc         String?
+  url          String
+  logo         String?
+  banner       String?
+  category     String?
+  active       Boolean @default(true)
+  userId       Int
+  user         UserInfo @relation(fields: [userId],references: [id])
 }
