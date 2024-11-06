@@ -5,7 +5,7 @@ import React, { use, useEffect } from 'react'
 import { CheckUser } from '../serverActions/CheckUser';
 import MobilePreview from "./_components/MobilePreview"
 import FormContent from "./_components/FormContent"
-const page = () => {
+const Page = () => {
 
   console.log("page is re rendered!!!")
 
@@ -45,4 +45,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

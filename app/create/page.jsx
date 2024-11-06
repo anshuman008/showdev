@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { CheckUser, CreateUserIndDb } from "../serverActions/CheckUser";
 import { useRouter } from "next/navigation";
 
-const page = () => {
+const Page = () => {
 
   const [username,setUsername] = useState('');
   const {user} =  useUser();
@@ -89,4 +89,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
