@@ -23,7 +23,7 @@ export const GetUserProjects = async (userId) => {
         userId: userId,
       },
       orderBy: {
-        id: "asc", // Orders by `id` in ascending order; use 'desc' for descending
+        order: "asc", // Orders by `id` in ascending order; use 'desc' for descending
       },
     });
     return { data: data, status: 200 };

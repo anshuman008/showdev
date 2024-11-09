@@ -68,3 +68,19 @@ export const GetUserDetails = async(email) => {
     return {"error":e,status:400}
   }
 }
+
+export const GetUserDetailsWithProjects = async(email) => {
+  try{
+       const res = await prisma.userInfo.findUnique({
+        where:{
+          email:email
+        },
+        include: { projects: true },
+       }); 
+       
+       return {userInfo:res,status:200}
+  }
+  catch(e){
+    return {"error":e,status:400}
+  }
+}

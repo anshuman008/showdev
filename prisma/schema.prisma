@@ -22,6 +22,7 @@ model UserInfo {
   location     String?
   link         String?
   profileImage String?
+  theme        String   @default("light")
   projects     Projects[]
 }
 
@@ -36,4 +37,5 @@ model Projects {
   active       Boolean @default(true)
   userId       Int
   user         UserInfo @relation(fields: [userId],references: [id])
+  order        Int   @default(0)
 }
