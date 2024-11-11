@@ -6,11 +6,14 @@ import { toast } from "react-toastify";
 import { useUser } from "@clerk/nextjs";
 import useUserInfo from "../../../store/userInfo";
 import { uploadImage } from "../../../utils/supabaseLogic";
+import useUserState from "../../../store/userProfileUpdate";
 
 const BasicDetails = () => {
   const userdata = useUserInfo();
   const [selectedOption, setSlectedOption] = useState("");
   const [userProfile,setProfile] = useState('');
+  const {setUserState} = useUserState();
+
   let timeoutId;
 
   const { user } = useUser();
@@ -19,6 +22,7 @@ const BasicDetails = () => {
     const res = await UpdateUser(data, field, email);
     if (res.status === 200) {
       toast.success(`${field} updated succesfully!!`);
+      setUserState();
     } else {
       toast.error("there is an error!");
     }

@@ -7,11 +7,8 @@ import { usePathname } from 'next/navigation';
 
 const Provider = ({children}) => {
    
-    const {setUser,userInfo} = useUserInfo();
+    const {setUser,userInfo,setError,setLoading} = useUserInfo();
     const path = usePathname().replace('/','');
-
-
-    // console.log("Rendered!!")
 
      useEffect(() => {
         console.log(path);
@@ -19,15 +16,25 @@ const Provider = ({children}) => {
      },[])  
 
     const getUserDetails = async() =>{
+           setLoading(true);
+
            const res = await GetUserDetailsWithProjects(path);
+
+
            if(res.status === 200){
-            console.log("this is teh user info",res.userInfo);
             setUser(res.userInfo)
+            setError(false);
            }
+
+           else if(res.status === 400){
+            setError(true);
+           }
+
+           setLoading(false)
     }
     
   return (
-    <div data-theme={userInfo.theme} >{children}</div>
+    <div data-theme={userInfo?.theme || "light"} >{children}</div>
   )
 }
 

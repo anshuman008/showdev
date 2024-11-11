@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { UpdateUser } from '../../../serverActions/CheckUser';
 import { useUser } from '@clerk/nextjs';
 import useUserInfo from '../../../../store/userInfo';
+import useUserState from '../../../../store/userProfileUpdate';
 
 
 
@@ -14,6 +15,7 @@ const ThemeOptions = () => {
   const {user} = useUser();
   const [selectedTheme,setSlectedTheme] = useState('');
   const {userInfo} = useUserInfo();
+  const {setUserState} = useUserState();
 
   const onThemeSlect = async(theme) =>{
      setSlectedTheme(theme);
@@ -26,6 +28,7 @@ const ThemeOptions = () => {
     const res = await UpdateUser(data, field, userEmail);
     if (res.status === 200) {
       toast.success(`saved!!`);
+      setUserState();
     } else {
       console.log(res.error);
       toast.error("there is an error!");

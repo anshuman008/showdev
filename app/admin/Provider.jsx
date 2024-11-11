@@ -17,7 +17,7 @@ const Provider = ({children}) => {
         setUser(res.userInfo)
     }
 
-    console.log("here is teh uder info: ",res.userInfo);
+    console.log("here is the user info: ",res.userInfo);
  }
 
 

@@ -18,11 +18,15 @@ import { toast } from "react-toastify";
 import { uploadImage } from "../../../utils/supabaseLogic";
 import Swal from "sweetalert2";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import useUserState from "../../../store/userProfileUpdate";
 
 const ProjectListEdit = ({ ProjectList, refreshData }) => {
   const [selectedOption, setSlectedOption] = useState("");
   const [projectListData,setProjectListData] = useState([])
+  const {setUserState} = useUserState();
 
+
+  
   const handelFileUpload = async (event, field, id) => {
     const file = event.target.files[0];
 
@@ -54,7 +58,7 @@ const ProjectListEdit = ({ ProjectList, refreshData }) => {
           toast.error("deleted!", {
             position: "top-right",
           });
-
+          setUserState();
           refreshData();
         } else {
           toast.error("Something went wrong!!");
@@ -69,6 +73,8 @@ const ProjectListEdit = ({ ProjectList, refreshData }) => {
       if (field === "logo") {
         refreshData();
       }
+      
+      setUserState();
       toast.success(`${field} updated succesfully!!`);
     } else {
       console.log(res.error);

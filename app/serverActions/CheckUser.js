@@ -78,6 +78,11 @@ export const GetUserDetailsWithProjects = async(username) => {
         include: { projects: true },
        }); 
        
+
+       if(!res){
+        return {"error":"no user found",status:400}
+       }
+       
        return {userInfo:res,status:200}
   }
   catch(e){

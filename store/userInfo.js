@@ -5,8 +5,8 @@ const User = (set,get) => ({
     userInfo: {},
     loading: false,
     error: false,
-    setLoading: (loading) => set((val) => ({loading:val})),
-    setError: (error) => set((val) => ({error:val})),
+    setLoading: (val) => set(() => ({loading:val})),
+    setError: (val) => set(() => ({error:val})),
     setUser: (userData) => set(()  => ({userInfo: userData})),
     getUser: ()  => get().userInfo
 })
