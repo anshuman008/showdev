@@ -1,12 +1,16 @@
 "use client"
 import React from 'react'
 import useUserState from '../../../store/userProfileUpdate'
+import useUserInfo from '../../../store/userInfo'
 
 const MobilePreview = () => {
   
   const {userState} = useUserState()
+  const  {userInfo} = useUserInfo()
 
 
+
+  console.log("here is the preview url!!", process.env.NEXT_PUBLIC_BASE_URL+userInfo?.username)
   return (
     <div className='p-5  md:fixed'>
       {userState}
@@ -16,7 +20,7 @@ const MobilePreview = () => {
       <iframe
         title='Profile'
         key={userState}
-        src={'http://localhost:3000/toxic005'}
+        src={process.env.NEXT_PUBLIC_BASE_URL+"/"+userInfo?.username}
         width="100%"
         height="100%"
         className='rounded-[25px]'
