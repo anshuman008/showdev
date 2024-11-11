@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { ProjectClickUpate } from '../../serverActions/ProjectActions'
+import moment from 'moment'
 
 const PojectList = ({projectList}) => {
 
@@ -9,8 +10,8 @@ const PojectList = ({projectList}) => {
 
 
   const increamentClick = async(projectId,projectUrl) => {
-        ProjectClickUpate('november',projectId);
-
+      await ProjectClickUpate(moment().format('MMM'),projectId);
+        
        window.open(projectUrl, '_blank');
   }
   return (

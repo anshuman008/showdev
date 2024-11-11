@@ -69,11 +69,11 @@ export const GetUserDetails = async(email) => {
   }
 }
 
-export const GetUserDetailsWithProjects = async(email) => {
+export const GetUserDetailsWithProjects = async(username) => {
   try{
        const res = await prisma.userInfo.findUnique({
         where:{
-          email:email
+          username:username
         },
         include: { projects: true },
        }); 

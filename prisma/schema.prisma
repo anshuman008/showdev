@@ -38,12 +38,12 @@ model Projects {
   userId   Int
   user     UserInfo @relation(fields: [userId], references: [id])
   order    Int      @default(0)
-  projectclicks  ProjectClicks?
+  projectclicks  ProjectClicks[]
 }
 
 model ProjectClicks {
   id       Int      @id @default(autoincrement())
   month    String
-  projectId Int     @unique
+  projectId Int     
   project  Projects  @relation(fields: [projectId] ,references: [id])
 }
