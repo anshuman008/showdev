@@ -35,7 +35,7 @@ const Page = () => {
     <div className=' grid grid-cols-1 lg:grid-cols-3 w-full p-5'>
 
       <div className='col-span-2'>
-        <FormContent/>
+        <FormContent/>  
        </div>
 
        <div className='col-span-1'> 

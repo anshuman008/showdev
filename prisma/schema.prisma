@@ -14,28 +14,36 @@ datasource db {
 }
 
 model UserInfo {
-  id           Int     @id @default(autoincrement())
+  id           Int        @id @default(autoincrement())
   name         String
-  email        String  @unique
-  username     String  @unique
+  email        String     @unique
+  username     String     @unique
   bio          String?
   location     String?
   link         String?
   profileImage String?
-  theme        String   @default("light")
+  theme        String     @default("light")
   projects     Projects[]
 }
 
 model Projects {
-  id           Int     @id @default(autoincrement())
-  name         String? 
-  desc         String?
-  url          String
-  logo         String?
-  banner       String?
-  category     String?
-  active       Boolean @default(true)
-  userId       Int
-  user         UserInfo @relation(fields: [userId],references: [id])
-  order        Int   @default(0)
+  id       Int      @id @default(autoincrement())
+  name     String?
+  desc     String?
+  url      String
+  logo     String?
+  banner   String?
+  category String?
+  active   Boolean  @default(true)
+  userId   Int
+  user     UserInfo @relation(fields: [userId], references: [id])
+  order    Int      @default(0)
+  projectclicks  ProjectClicks?
+}
+
+model ProjectClicks {
+  id       Int      @id @default(autoincrement())
+  month    String
+  projectId Int     @unique
+  project  Projects  @relation(fields: [projectId] ,references: [id])
 }

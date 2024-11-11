@@ -65,3 +65,22 @@ export const DeleteProject = async (projectId) => {
       return { data: error.message, status: 400 };
     }
 }
+
+
+export const ProjectClickUpate = async (month,projectId) => {
+  try
+  {
+          const res = await prisma.ProjectClicks.create({
+             data:{
+              month:month,
+              projectId:projectId
+             }
+          })
+        return { data: res, status: 200 };
+
+  }
+  catch(e){
+    console.error("Error adding create:", error);
+    return { data: error.message, status: 400 };
+  }
+}
