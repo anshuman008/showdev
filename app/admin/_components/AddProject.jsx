@@ -1,17 +1,16 @@
 import { Link2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import useUserInfo from "../../../store/userInfo";
-import { CreateNewProject ,GetUserProjects } from "../../serverActions/ProjectActions";
+import { CreateNewProject  } from "../../serverActions/ProjectActions";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import ProjectListEdit from "./ProjectListEdit"
 
-const AddProject = () => {
+
+const AddProject = ({refreshData}) => {
   const [openUrl, setOpenUrl] = useState(false);
   const [loading,setLoading] = useState(false);
 
   const userdata = useUserInfo();
-
 
   const handelSubmit = async(event) => {
     event.preventDefault();
@@ -23,6 +22,7 @@ const AddProject = () => {
 
     if(res.status === 200){
       toast.success("New project added!!");
+      refreshData();
     }else{
       console.log(res.data);
       toast.error("Something went wrong!!")

@@ -9,7 +9,7 @@ import useUserState from '../../../store/userProfileUpdate'
 const FormContent = () => {
 
   const [projectList,setProjectList] = useState([]); 
-  const {setUserState} = useUserState()
+  // const {refreshData} = useUserState();  
 
   const userdata = useUserInfo();
 
@@ -25,7 +25,7 @@ const FormContent = () => {
 
   useEffect(() => {
       userdata&&getProjects();
-  },[userdata])
+  },[userdata]) // we can also pass refreshData as a globar data that whenver change refetch the list
 
 
   return (
@@ -34,7 +34,7 @@ const FormContent = () => {
        <BasicDetails/>
 
        <br className='py-3'></br>
-       <AddProject/>
+       <AddProject refreshData={getProjects}/>
 
        {projectList && <ProjectListEdit ProjectList={projectList} refreshData={getProjects}/>}
     </div>
