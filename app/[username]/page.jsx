@@ -8,7 +8,6 @@ import ProjectList  from "./_components/PojectList";
 const Page = () => {
 
   const {userInfo} = useUserInfo();
-
   return (
     <div className='p-3 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-5'>
       <div>
@@ -16,7 +15,7 @@ const Page = () => {
       </div> 
 
       <div>
-         <ProjectList/>
+         <ProjectList projectList={userInfo.projects}/>
       </div> 
     </div>
   )

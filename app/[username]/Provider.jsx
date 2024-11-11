@@ -6,8 +6,7 @@ import useUserInfo from '../../store/userInfo';
 
 const Provider = ({children}) => {
    
-   
-    const {setUser} = useUserInfo();
+    const {setUser,userInfo} = useUserInfo();
     const {user} = useUser();
     console.log("Rendered!!")
 
@@ -23,7 +22,7 @@ const Provider = ({children}) => {
            }
     }
   return (
-    <div data-theme="light" >{children}</div>
+    <div data-theme={userInfo.theme} >{children}</div>
   )
 }
 

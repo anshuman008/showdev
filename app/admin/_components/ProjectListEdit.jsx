@@ -28,14 +28,13 @@ const ProjectListEdit = ({ ProjectList, refreshData }) => {
 
     // console.log({"field of update":field,"file":file})
 
-    console.log("Here is the id", id)
-    // if (file) {
-    //   const url = await uploadImage(file);
+    if (file) {
+      const url = await uploadImage(file);
 
-    //   if (url) {
-    //     await updateData(url, field, id);
-    //   }
-    // }
+      if (url) {
+        await updateData(url, field, id);
+      }
+    }
   };
 
   const OnProjectDelete = async (projectId) => {
