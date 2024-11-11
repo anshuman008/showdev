@@ -48,8 +48,6 @@ const UniqueVisitors = () => {
       <h2 className="font-bold text-lg my-3">Unique Visitors</h2>
       <ResponsiveContainer width={'100%'} height={250}>
         <AreaChart
-          // width={1000}
-          // height={1000}
           data={clickdata}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >

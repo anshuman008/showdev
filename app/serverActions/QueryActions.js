@@ -43,4 +43,31 @@ export const GetUserProjectClicks = async (email) => {
 };
 
 
+export const GetPorjectsClicks = async(email) => {
+    try{
+     const user = await prisma.userInfo.findUnique({
+      where:{
+        email:email
+      },
+      include: {
+        projects: {
+          include: {
+            projectclicks: true,
+          },
+        },
+      },
+     })
 
+     if (!user) {
+      return { error: "No user found", status: 400 };
+    }
+
+    const projectObject = user.projects.map((project) =>({name:project.name,projectclicks:project.projectclicks.length}));
+
+    return { data:projectObject, status: 200 };
+    }
+    catch(e){
+      return { error:e?.message, status: 400 };
+
+    }
+}
