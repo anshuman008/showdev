@@ -4,6 +4,7 @@ import { ChartBar } from 'lucide-react'
 import { Settings } from 'lucide-react'
 import { Brush } from 'lucide-react'
 import { Layers3 } from 'lucide-react'
+import Link from 'next/link'
 
 
 
@@ -13,17 +14,20 @@ const SideNav = () => {
     {
        id:1,
        name:"Pages",
-       icon: <Layers3 size={24}/>
+       icon: <Layers3 size={24}/>,
+       path: '/admin'
      },
      {
         id:2,
         name:"Stats",
-        icon: <ChartBar  size={24}/>
+        icon: <ChartBar  size={24}/>,
+        path: '/admin/analytics'
       },
       {
         id:3,
         name:"Styles",
-        icon: <Brush  size={24}/>
+        icon: <Brush  size={24}/>,
+        path: '/admin/style'
       },
       {
         id:4,
@@ -35,9 +39,9 @@ const SideNav = () => {
   return (
     <div className='bg-neutral-800 h-screen p-4  relative'>
      {menuList.map((menu,index) => (
-        <div key={index} className='p-2 py-4 rounded-lg bg-primary flex justify-center items-center mb-5 tooltip-secondary tooltip  tooltip-right' data-tip={menu.name}>
+        <Link href={menu?.path || "/"} key={index} className='p-2 py-4 rounded-lg bg-primary flex justify-center items-center mb-5 tooltip-secondary tooltip  tooltip-right' data-tip={menu.name}>
              {menu.icon}
-        </div>   
+        </Link>   
      ))}
 
 
