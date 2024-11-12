@@ -2,18 +2,20 @@ import Link from 'next/link'
 import React from 'react'
 import { ProjectClickUpate } from '../../serverActions/ProjectActions'
 import moment from 'moment'
+import { useRouter } from 'next/navigation'
 
 const PojectList = ({projectList}) => {
 
 
   console.log("here is the projects: ",projectList)
-
+  const router = useRouter()
 
   const increamentClick = async(projectId,projectUrl) => {
       await ProjectClickUpate(moment().format('MMM'),projectId);
         
-       window.open(projectUrl, '_blank');
-  }
+      router.push(projectUrl)
+      window.open(projectUrl, '_blank'); 
+    }
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-7'>
 
@@ -33,7 +35,7 @@ const PojectList = ({projectList}) => {
 
             </div>
              
-             <h2 className='text-base-content/80 text-xs lg:text-sm my-2'>{project?.desc}</h2>
+             <h2 className='text-base-content/80 text-sm lg:text-sm my-2'>{project?.desc}</h2>
 
             </div> 
         ))
