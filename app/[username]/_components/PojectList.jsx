@@ -13,7 +13,6 @@ const PojectList = ({projectList}) => {
   const increamentClick = async(projectId,projectUrl) => {
       await ProjectClickUpate(moment().format('MMM'),projectId);
         
-      router.push(projectUrl)
       window.open(projectUrl, '_blank'); 
     }
   return (
