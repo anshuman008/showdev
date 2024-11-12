@@ -37,9 +37,9 @@ const SideNav = () => {
 ]
 
   return (
-    <div className='bg-neutral-800 h-screen p-4  relative'>
+    <div className='bg-[#f3f3f1] h-screen p-4  relative py-12'>
      {menuList.map((menu,index) => (
-        <Link href={menu?.path || "/admin"} key={index} className='p-2 py-4 rounded-lg bg-primary flex justify-center items-center mb-5 tooltip-secondary tooltip  tooltip-right' data-tip={menu.name}>
+        <Link href={menu?.path || "/admin"} key={index} className='p-2 py-4 rounded-lg bg-gray-200 flex justify-center items-center mb-5 tooltip-info tooltip  tooltip-right' data-tip={menu.name}>
              {menu.icon}
         </Link>   
      ))}

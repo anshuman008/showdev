@@ -32,7 +32,7 @@ const Page = () => {
   }
 
   return (
-    <div className=' grid grid-cols-1 lg:grid-cols-3 w-full p-5'>
+    <div className='min-h-screen grid grid-cols-1 lg:grid-cols-3 w-full p-5'>
 
       <div className='col-span-2'>
         <FormContent/>

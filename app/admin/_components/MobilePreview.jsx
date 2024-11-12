@@ -13,10 +13,9 @@ const MobilePreview = () => {
   console.log("here is the preview url!!", process.env.NEXT_PUBLIC_BASE_URL+userInfo?.username)
   return (
     <div className='p-5  md:fixed'>
-      {userState}
-    <div className='border-[13px]  lg:w-[330px] xl:w-[350px] w-full border-black 
+    <div className='border-[10px]  lg:w-[330px] xl:w-[350px] w-full border-black 
     max-h-[650px]
-    h-screen rounded-[40px] m-2 shadow-md shadow-primary'>
+    h-screen rounded-[40px] m-2 shadow-md shadow-gray-400'>
       <iframe
         title='Profile'
         key={userState}

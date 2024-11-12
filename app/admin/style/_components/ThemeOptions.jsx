@@ -37,7 +37,10 @@ const ThemeOptions = () => {
 
 
   return (
-    <div className='font-bold text-3xl py-10'>Select Your Page Theme
+    <div className=''>
+      <div className='font-bold text-3xl py-7'>
+      Select Your Page Theme
+      </div>
 
     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
      {

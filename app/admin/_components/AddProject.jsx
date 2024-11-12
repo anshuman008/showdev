@@ -36,7 +36,7 @@ const AddProject = ({refreshData}) => {
       {!openUrl ? (
         <button
           onClick={() => setOpenUrl(true)}
-          className="btn btn-secondary w-full"
+          className="btn btn-outline w-full"
         >
           + Add New Project/Startup
         </button>

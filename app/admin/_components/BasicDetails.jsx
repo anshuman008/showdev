@@ -60,7 +60,7 @@ useEffect(() => {
   }
 
   return (
-    <div className="p-7 rounded-lg bg-gray-800 my-7">
+    <div className="p-7 rounded-lg bg-[#f3f3f1] my-7">
       <div className="flex gap-6 items-center">
        <label htmlFor="file-upload">
         {!userProfile&&<Camera className="p-3 h-12 w-12 rounded-full bg-gray-500 cursor-pointer" />}
@@ -93,11 +93,11 @@ useEffect(() => {
       <div>
         <div className="flex gap-3 mt-6">
           <MapPin
-            className={`h-12 w-12 p-3 text-blue-400 rounded-md hover:bg-gray-600 ${selectedOption === 'location' && 'bg-gray-600'}`}
+            className={`h-12 w-12 p-3 text-blue-400 rounded-md hover:bg-gray-200 ${selectedOption === 'location' && 'bg-gray-300'}`}
             onClick={() => setSlectedOption("location")}
           />
           <Link2
-            className={`h-12 w-12 p-3 text-yellow-400 rounded-md hover:bg-gray-600 ${selectedOption === 'link' && 'bg-gray-600'}`}
+            className={`h-12 w-12 p-3 text-yellow-400 rounded-md hover:bg-gray-200 ${selectedOption === 'link' && 'bg-gray-300'}`}
             onClick={() => setSlectedOption("link")}
           />
         </div>

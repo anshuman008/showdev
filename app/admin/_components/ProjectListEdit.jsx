@@ -127,7 +127,7 @@ const ProjectListEdit = ({ ProjectList, refreshData }) => {
                       key={project.id}
                       ref={provided.innerRef}
                       {...provided.draggableProps}
-                      className="my-7 bg-gray-800 p-5 rounded-lg flex items-center gap-4"
+                      className="my-7 bg-[#f3f3f1] p-5 rounded-lg flex items-center gap-4"
                     >
                       <div {...provided.dragHandleProps}
                       >
@@ -187,15 +187,15 @@ const ProjectListEdit = ({ ProjectList, refreshData }) => {
                       <div className="flex justify-between items-center">
                         <div className="flex gap-3 mt-6">
                           <Link2
-                            className={`h-12 w-12 p-3  rounded-md hover:bg-gray-600 ${
-                              selectedOption === "link" + index && "bg-gray-600"
+                            className={`h-12 w-12 p-3  rounded-md hover:bg-gray-200 ${
+                              selectedOption === "link" + index && "bg-gray-300"
                             }`}
                             onClick={() => setSlectedOption("link" + index)}
                           />
                           <LayoutGrid
-                            className={`h-12 w-12 p-3 rounded-md hover:bg-gray-600 ${
+                            className={`h-12 w-12 p-3 rounded-md hover:bg-gray-200 ${
                               selectedOption === "category" + index &&
-                              "bg-gray-600"
+                              "bg-gray-300"
                             }`}
                             onClick={() => setSlectedOption("category" + index)}
                           />
