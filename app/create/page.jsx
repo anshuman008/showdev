@@ -29,6 +29,7 @@ const Page = () => {
 
    if(res.staus === 200){
      toast.success("User created succesfully!!")
+      router.push("/admin")
    }else{
         toast.error("This username is already exist!!")
    }

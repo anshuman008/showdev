@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/test/page.jsx", "app/test/demo/page.jsx", "app/admin/_components/AddProject.jsx", "app/admin/style/page.jsx"  ],
+, "app/test/page.jsx", "app/test/demo/page.jsx", "app/admin/_components/AddProject.jsx", "app/admin/style/page.jsx", "app/create/layout.jsx"  ],
   "exclude": [
     "node_modules"
   ]
